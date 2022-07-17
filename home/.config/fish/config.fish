@@ -24,4 +24,17 @@ if status is-interactive
 	# TODO: check deno exists
 	set -x DENO_INSTALL {$HOME}/.deno
 	set -x PATH {$DENO_INSTALL}/bin $PATH
+
+	#######
+	# asdf
+	#######
+	# install
+	if test ! -d {$HOME}/.asdf
+		git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.10.2
+		# completion
+		if test ! -d {$HOME}/.config/fish/completions/asdf.fish
+			mkdir -p ~/.config/fish/completions; and ln -s ~/.asdf/completions/asdf.fish ~/.config/fish/completions
+		end
+	end
+	source ~/.asdf/asdf.fish
 end
