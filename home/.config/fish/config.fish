@@ -1,12 +1,16 @@
 if status is-interactive
-	set -g theme_date_format "+%Y-%m-%d %H:%M:%S"
-	set -g fish_prompt_pwd_dir_length 0
+    set -g theme_date_format "+%Y-%m-%d %H:%M:%S"
+    set -g fish_prompt_pwd_dir_length 0
 
-	if test -e {$HOME}/.homesick/repos/homeshick/homeshick.fish
-		source {$HOME}/.homesick/repos/homeshick/homeshick.fish
-	end
+    if test -e {$HOME}/.homesick/repos/homeshick/homeshick.fish
+        source {$HOME}/.homesick/repos/homeshick/homeshick.fish
+    end
 
-	switch (uname)
+    # golang
+    mkdir -p {$HOME}/.go
+    set -x GOPATH {$HOME}/.go
+    set -x PATH {$PATH} {$GOPATH}/bin
+    switch (uname)
     case 'Darwin'
         if test -f '/opt/homebrew/bin/brew'
             eval (/opt/homebrew/bin/brew shellenv)
@@ -46,5 +50,4 @@ if status is-interactive
 	source ~/.asdf/asdf.fish
 
     set -x GPG_TTY (tty)
-
 end
