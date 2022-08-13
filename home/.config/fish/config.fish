@@ -10,6 +10,7 @@ if status is-interactive
     mkdir -p {$HOME}/.go
     set -x GOPATH {$HOME}/.go
     set -x PATH {$PATH} {$GOPATH}/bin
+    set -x PATH {$PATH} /usr/local/go/bin
     switch (uname)
     case 'Darwin'
         if test -f '/opt/homebrew/bin/brew'
