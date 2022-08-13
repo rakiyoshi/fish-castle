@@ -11,6 +11,15 @@ if status is-interactive
     set -x GOPATH {$HOME}/.go
     set -x PATH {$PATH} {$GOPATH}/bin
     set -x PATH {$PATH} /usr/local/go/bin
+
+		# nvim
+		abbr -a vim nvim
+
+		# ls
+		abbr -a l ls
+		abbr -a la ls -la
+		abbr -a al ls -la
+
     switch (uname)
     case 'Darwin'
         if test -f '/opt/homebrew/bin/brew'
