@@ -60,4 +60,6 @@ if status is-interactive
   source ~/.asdf/asdf.fish
 
   set -x GPG_TTY (tty)
+
+  source .fish_config.local
 end
