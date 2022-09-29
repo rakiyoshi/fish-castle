@@ -61,5 +61,7 @@ if status is-interactive
 
   set -x GPG_TTY (tty)
 
-  source .fish_config.local
+	if test -f .fish_config.local
+    source .fish_config.local
+	end
 end
