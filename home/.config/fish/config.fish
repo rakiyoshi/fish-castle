@@ -12,6 +12,10 @@ if status is-interactive
     set -x PATH {$PATH} {$GOPATH}/bin
     set -x PATH {$PATH} /usr/local/go/bin
 
+    # rust
+    set -x PATH {$PATH} {$HOME}/.cargo/bin
+
+
     # nvim
     abbr -a vim nvim
 
