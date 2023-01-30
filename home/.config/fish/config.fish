@@ -20,6 +20,9 @@ if status is-interactive
     abbr -a la ls -la
     abbr -a al ls -la
 
+    # cp
+    abbr -a cp "cp -i"
+
     switch (uname)
     case 'Darwin'
         if test -f '/opt/homebrew/bin/brew'

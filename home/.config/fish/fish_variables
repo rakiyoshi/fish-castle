@@ -2,6 +2,7 @@
 # VERSION: 3.0
 SETUVAR __fish_initialized:3400
 SETUVAR _fish_abbr_al:ls\x20\x2dla
+SETUVAR _fish_abbr_cp:cp\x20\x2di
 SETUVAR _fish_abbr_l:ls
 SETUVAR _fish_abbr_la:ls\x20\x2dla
 SETUVAR _fish_abbr_vim:nvim
