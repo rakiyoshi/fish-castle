@@ -66,6 +66,11 @@ if status is-interactive
   end
   source ~/.asdf/asdf.fish
 
+  # aqua
+  if which -s aqua
+    set -x PATH $(aqua root-dir)/bin $PATH
+  end
+
   set -x GPG_TTY (tty)
 
 	if test -f .fish_config.local
