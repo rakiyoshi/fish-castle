@@ -71,6 +71,10 @@ if status is-interactive
     set -x PATH $(aqua root-dir)/bin $PATH
   end
 
+  if which -s npm
+    set -x PATH $(npm prefix --location=global)/bin $PATH
+  end
+
   set -x GPG_TTY (tty)
 
 	if test -f .fish_config.local
