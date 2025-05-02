@@ -56,15 +56,21 @@ if status is-interactive
   #######
   # asdf
   #######
-  # install
-  if test ! -d {$HOME}/.asdf
-    git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.10.2
-    # completion
-    if test ! -d {$HOME}/.config/fish/completions/asdf.fish
-      mkdir -p ~/.config/fish/completions; and ln -s ~/.asdf/completions/asdf.fish ~/.config/fish/completions
+  # ASDF configuration code
+  if which -s asdf
+    if test -z $ASDF_DATA_DIR
+      set _asdf_shims "$HOME/.asdf/shims"
+    else
+      set _asdf_shims "$ASDF_DATA_DIR/shims"
     end
   end
-  source ~/.asdf/asdf.fish
+
+  # Do not use fish_add_path (added in Fish 3.2) because it
+  # potentially changes the order of items in PATH
+  if not contains $_asdf_shims $PATH
+      set -gx --prepend PATH $_asdf_shims
+  end
+  set --erase _asdf_shims
 
   # aqua
   if which -s aqua
@@ -77,7 +83,7 @@ if status is-interactive
 
   set -x GPG_TTY (tty)
 
-	if test -f .fish_config.local
+	if test -e .fish_config.local
     source .fish_config.local
 	end
 end
