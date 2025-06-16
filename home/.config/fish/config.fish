@@ -86,4 +86,11 @@ if status is-interactive
 	if test -e .fish_config.local
     source .fish_config.local
 	end
+
+  if which -s direnv
+    direnv hook fish | source
+  end
 end
+
+# rbenv
+status --is-interactive; and rbenv init - --no-rehash fish | source
