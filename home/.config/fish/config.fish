@@ -98,9 +98,8 @@ if status is-interactive
   # neovim
   set -x PATH /opt/nvim-linux-x86_64/bin {$PATH}
 
-  # Added by `rbenv init` on Tue Apr 15 17:14:12 JST 2025
-  status --is-interactive; and ~/.rbenv/bin/rbenv init - --no-rehash fish | source
-
   # rbenv
-  status --is-interactive; and rbenv init - --no-rehash fish | source
+  if type -q rbenv
+    status --is-interactive; and rbenv init - --no-rehash fish | source
+  end
 end
